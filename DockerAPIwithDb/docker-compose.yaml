@@ -1,0 +1,37 @@
+version:
+  '3.4'
+
+networks:
+  dockerapi-dev:
+    driver: bridge
+
+
+services:
+  SimpleWordASP:
+    image: api
+    depends_on:
+      - "postgres_image"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    environment:
+      DB_CONNECTION_STRING: "host=postgres_image;port=5432;database=testing;username=postgres;password=postgres"
+    networks:
+      - dockerapi-dev
+  
+  postgres_image:
+
+    image:
+      postgres:latest
+    ports:
+      - "5432"
+    restart:
+      always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "postgres"
+    networks:
+      - dockerapi-dev
