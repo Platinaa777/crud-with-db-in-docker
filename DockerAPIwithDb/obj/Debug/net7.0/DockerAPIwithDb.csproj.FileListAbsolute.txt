@@ -35,3 +35,9 @@
 /home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/obj/Debug/net7.0/DockerAPIwithDb.pdb
 /home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/obj/Debug/net7.0/DockerAPIwithDb.genruntimeconfig.cache
 /home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/obj/Debug/net7.0/ref/DockerAPIwithDb.dll
+/home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+/home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/bin/Debug/net7.0/Microsoft.OpenApi.dll
+/home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/denis/RiderProjects/DockerAPIwithDb/DockerAPIwithDb/obj/Debug/net7.0/DockerAPIwithDb.MvcApplicationPartsAssemblyInfo.cs

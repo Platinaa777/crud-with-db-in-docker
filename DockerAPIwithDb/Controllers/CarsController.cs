@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DockerAPIwithDb.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class CarsController : ControllerBase
 {
     private readonly DataContext _db;
@@ -16,8 +16,8 @@ public class CarsController : ControllerBase
         _db = db;
     }
 
-    [HttpGet("all")]
-    public async Task<ActionResult<List<Car>>> GetAll()
+    [HttpGet(Name="all")]
+    public async Task<IActionResult> Get()
     {
         return Ok(_db.Cars.ToList());
     }
@@ -57,7 +57,7 @@ public class CarsController : ControllerBase
         {
             return BadRequest("nothing can be deleted");
         }
-
+    
         _db.Cars.Remove(car);
         _db.SaveChanges();
         return Ok(_db.Cars.ToList());

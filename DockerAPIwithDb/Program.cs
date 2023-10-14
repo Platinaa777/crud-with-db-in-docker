@@ -4,24 +4,36 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DataContext>(opt =>
-    opt.UseNpgsql("host=postgres_image;port=5432;database=testing;username=postgres;password=postgres")
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+
 var app = builder.Build();
 
-app.MapGet("/test", (context) =>
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    return context.Response.WriteAsync("12312");
-});
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-app.MapControllers();
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-
-
+app.MapControllers();
 
 app.Run();
+
+// public static class EnsureMigration
+// {
+//     public static void EnsureMigrationOfContext<T>(this IApplicationBuilder app) where T:DbContext
+//     {
+//         var context = app.ApplicationServices.GetService<T>();
+//         context.Database.Migrate();
+//         context.Database.EnsureCreated();
+//     }
+// }
